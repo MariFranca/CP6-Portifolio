@@ -58,13 +58,13 @@ export function Projects() {
           fontWeight={700}
           sx={{ color: "primary.main", mb: 4 }}
         >
-          My Projects
+          Meus Projetos
         </Typography>
 
         <Box sx={{ display: "flex", justifyContent: "center", mb: 8 }}>
           <TextField
             variant="outlined"
-            placeholder="Pesquisar"
+            placeholder="Pesquisar projetos..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             sx={{
@@ -82,139 +82,155 @@ export function Projects() {
           />
         </Box>
 
-        {filteredProjects.map((project, index) => (
-          <Grid
-            container
-            spacing={6}
-            alignItems="center"
-            justifyContent="center"
-            key={index}
-            sx={{
-              mb: 10,
-              flexDirection:
-                index % 2 === 1 ? { xs: "column", md: "row-reverse" } : "row",
-            }}
-          >
+        {filteredProjects.length > 0 ? (
+          filteredProjects.map((project, index) => (
             <Grid
-              item
-              xs={12}
-              md={6}
+              container
+              spacing={6}
+              alignItems="center"
+              justifyContent="center"
+              key={index}
               sx={{
-                display: "flex",
-                justifyContent: "center",
+                mb: 10,
+                flexDirection:
+                  index % 2 === 1 ? { xs: "column", md: "row-reverse" } : "row",
               }}
             >
-              <Card
+
+              <Grid
+                item
+                xs={12}
+                md={6}
                 sx={{
-                  borderRadius: 4,
-                  overflow: "hidden",
-                  boxShadow: 4,
-                  width: "100%",
-                  maxWidth: 480,
-                  transition: "transform 0.3s ease",
-                  "&:hover img": {
-                    transform: "scale(1.05)",
-                  },
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  alt={project.title}
+                <Card
                   sx={{
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    boxShadow: 4,
                     width: "100%",
-                    height: { xs: 240, md: 320 },
-                    objectFit: "cover",
+                    maxWidth: 480,
                     transition: "transform 0.3s ease",
+                    "&:hover img": {
+                      transform: "scale(1.05)",
+                    },
                   }}
-                />
-              </Card>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{
-                maxWidth: 500,
-                textAlign: { xs: "center", md: "left" },
-              }}
-            >
-              <Typography variant="h5" fontWeight={600} gutterBottom color="tertiary.main">
-                {project.title}
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{ mb: 3, lineHeight: 1.6, color: "tertiary.main" }}
-              >
-                {project.description}
-              </Typography>
-
-              <Stack
-                direction="row"
-                flexWrap="wrap"
-                justifyContent={{ xs: "center", md: "flex-start" }}
-                spacing={1}
-                sx={{ mb: 3 }}
-              >
-                {project.tags.map((tag, i) => (
-                  <Chip
-                    key={i}
-                    label={tag}
-                    variant="outlined"
+                >
+                  <CardMedia
+                    component="img"
+                    image={project.image}
+                    alt={project.title}
                     sx={{
-                      borderRadius: "8px",
-                      color: "primary.main",
-                      borderColor: "primary.main",
+                      width: "100%",
+                      height: { xs: 240, md: 320 },
+                      objectFit: "cover",
+                      transition: "transform 0.3s ease",
                     }}
                   />
-                ))}
-              </Stack>
+                </Card>
+              </Grid>
 
-              <Stack
-                direction="row"
-                justifyContent={{ xs: "center", md: "flex-start" }}
-                spacing={2}
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  maxWidth: 500,
+                  textAlign: { xs: "center", md: "left" },
+                }}
               >
-                <Button
-                  variant="contained"
-                  startIcon={<OpenInNew />}
-                  href={project.demo}
-                  target="_blank"
-                  sx={{
-                    borderRadius: 2,
-                    textTransform: "none",
-                    px: 3,
-                    bgcolor: "primary.main",
-                    "&:hover": { bgcolor: "secondary.light" },
-                  }}
+                <Typography
+                  variant="h5"
+                  fontWeight={600}
+                  gutterBottom
+                  color="tertiary.main"
                 >
-                  Live Demo
-                </Button>
-                <Button
-                  variant="outlined"
-                  startIcon={<GitHub />}
-                  href={project.github}
-                  target="_blank"
-                  sx={{
-                    borderRadius: 2,
-                    textTransform: "none",
-                    px: 3,
-                    color: "primary.main",
-                    borderColor: "primary.main",
-                    "&:hover": { borderColor: "gray" },
-                  }}
+                  {project.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ mb: 3, lineHeight: 1.6, color: "tertiary.main" }}
                 >
-                  Source Code
-                </Button>
-              </Stack>
+                  {project.description}
+                </Typography>
+
+                <Stack
+                  direction="row"
+                  flexWrap="wrap"
+                  justifyContent={{ xs: "center", md: "flex-start" }}
+                  spacing={1}
+                  sx={{ mb: 3 }}
+                >
+                  {project.tags.map((tag, i) => (
+                    <Chip
+                      key={i}
+                      label={tag}
+                      variant="outlined"
+                      sx={{
+                        borderRadius: "8px",
+                        color: "primary.main",
+                        borderColor: "primary.main",
+                      }}
+                    />
+                  ))}
+                </Stack>
+
+                <Stack
+                  direction="row"
+                  justifyContent={{ xs: "center", md: "flex-start" }}
+                  spacing={2}
+                >
+                  <Button
+                    variant="contained"
+                    startIcon={<OpenInNew />}
+                    href={project.demo}
+                    target="_blank"
+                    sx={{
+                      borderRadius: 2,
+                      textTransform: "none",
+                      px: 3,
+                      bgcolor: "primary.main",
+                      "&:hover": { bgcolor: "secondary.light" },
+                    }}
+                  >
+                    Live Demo
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    startIcon={<GitHub />}
+                    href={project.github}
+                    target="_blank"
+                    sx={{
+                      borderRadius: 2,
+                      textTransform: "none",
+                      px: 3,
+                      color: "primary.main",
+                      borderColor: "primary.main",
+                      "&:hover": { borderColor: "gray" },
+                    }}
+                  >
+                    Source Code
+                  </Button>
+                </Stack>
+              </Grid>
             </Grid>
-          </Grid>
-        ))}
+          ))
+        ) : (
+          <Typography
+            variant="h6"
+            align="center"
+            color="tertiary.main"
+            sx={{ mt: 4 }}
+          >
+            Nenhum projeto localizado 
+          </Typography>
+        )}
       </Container>
     </Box>
   );
 }
 
 export default Projects;
-
