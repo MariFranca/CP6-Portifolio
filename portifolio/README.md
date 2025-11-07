@@ -1,16 +1,39 @@
-# React + Vite
+# 💻 Portfólio Pessoal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o meu portfólio desenvolvido como parte da **CP6** da faculdade.  
+O objetivo do projeto é apresentar minhas habilidades, projetos e informações de contato em um site moderno, responsivo e visualmente agradável.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 **Descrição do Projeto**
 
-## React Compiler
+O portfólio foi construído com foco em uma navegação simples e fluida, permitindo que o usuário conheça mais sobre mim, minhas habilidades e projetos de forma interativa.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A página é **totalmente responsiva**, adaptando-se a diferentes tamanhos de tela (desktop, tablet e celular).  
+Foi desenvolvido utilizando **React** e **Material UI**, com **scroll suave** entre seções para uma experiência de navegação agradável.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 **Funcionalidades**
+
+- 🌟 Seção *Home*: apresentação e introdução  
+- 👩‍💻 Seção *About me*: informações sobre mim e minha trajetória  
+- 📂 Seção *Projects*: principais projetos desenvolvidos  
+- 📞 Seção *Contact*: formas de contato  
+- ⚡ Navegação com *scroll suave* via header
+
+---
+
+##  **Tecnologias e Bibliotecas Utilizadas**
+
+| Categoria | Tecnologias |
+|------------|--------------|
+| **Linguagem principal** | JavaScript (JSX) |
+| **Framework** | React.js |
+| **Biblioteca de componentes** | Material UI (MUI) |
+| **Estilização** | styled-components do MUI |
+| **Scroll suave** | react-scroll |
+| **Gerenciamento de pacotes** | npm |
+| **Empacotador** | Vite |
+
+---
