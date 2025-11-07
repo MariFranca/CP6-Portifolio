@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -11,6 +12,25 @@ import {
 import { Email, Phone, LocationOn } from "@mui/icons-material";
 
 export default function Contact() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    alert(
+      `📩 Informações do formulário:\n\nNome: ${name}\nEmail: ${email}\nMensagem: ${message}`
+    );
+
+
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
   return (
     <Box
       component="section"
@@ -36,8 +56,8 @@ export default function Contact() {
               variant="body1"
               sx={{ mb: 4, color: "tertiary.main", lineHeight: 1.7 }}
             >
-              Eu estou sempre disponivel a discutir novos projetos, ideias criativas ou
-              oportunidades de colaboração. 
+              Eu estou sempre disponível para discutir novos projetos, ideias criativas
+              ou oportunidades de colaboração.
             </Typography>
 
             <Stack spacing={3}>
@@ -58,7 +78,9 @@ export default function Contact() {
                   <Typography variant="subtitle2" fontWeight={600}>
                     Email
                   </Typography>
-                  <Typography variant="body2">marsouzafranca@gmail.com</Typography>
+                  <Typography variant="body2">
+                    marsouzafranca@gmail.com
+                  </Typography>
                 </Box>
               </Stack>
 
@@ -115,53 +137,63 @@ export default function Contact() {
                 bgcolor: "background.paper",
               }}
             >
-              <Stack spacing={3}>
-                <TextField
-                  label="Name"
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
+
+              <form onSubmit={handleSubmit}>
+                <Stack spacing={3}>
+                  <TextField
+                    label="Name"
+                    variant="outlined"
+                    fullWidth
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "10px",
+                      },
+                    }}
+                  />
+                  <TextField
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "10px",
+                      },
+                    }}
+                  />
+                  <TextField
+                    label="Message"
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    fullWidth
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: "10px",
+                      },
+                    }}
+                  />
+                  <Button
+                    type="submit" 
+                    variant="contained"
+                    size="large"
+                    sx={{
                       borderRadius: "10px",
-                    },
-                  }}
-                />
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "10px",
-                    },
-                  }}
-                />
-                <TextField
-                  label="Message"
-                  multiline
-                  rows={4}
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "10px",
-                    },
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  size="large"
-                  sx={{
-                    borderRadius: "10px",
-                    bgcolor: "secondary.main",
-                    "&:hover": { bgcolor: "secondary.dark" },
-                    textTransform: "none",
-                    fontWeight: 600,
-                  }}
-                >
-                  Send Message
-                </Button>
-              </Stack>
+                      bgcolor: "secondary.main",
+                      "&:hover": { bgcolor: "secondary.dark" },
+                      textTransform: "none",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Send Message
+                  </Button>
+                </Stack>
+              </form>
             </Paper>
           </Grid>
         </Grid>
