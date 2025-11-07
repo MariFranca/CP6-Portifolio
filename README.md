@@ -14,7 +14,7 @@ Foi desenvolvido utilizando **React** e **Material UI**, com **scroll suave** en
 
 ---
 
-### 🌐 Acesse o projeto online:
+### 🌐 Acesse o projeto online: [Meu Portifólio](https://cp-6-portifolio.vercel.app/)
 
 ---
 
