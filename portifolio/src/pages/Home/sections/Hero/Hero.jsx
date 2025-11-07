@@ -2,21 +2,23 @@ import { Button, Container, Grid, Typography, styled } from "@mui/material";
 import Avatar from "../../../../assets/images/avatar.jpg";
 import GetAppIcon from '@mui/icons-material/GetApp';
 import EmailIcon from '@mui/icons-material/Email';
+import theme from "../../../../theme";
 
 const StyledHero = styled("div")(() => ({
-  backgroundColor: "black",
+  backgroundColor: theme.palette.primary.main,
   height: "100vh",
   display: "flex",
   alignItems: "center",
 }));
 
 const StyledImg = styled("img")(() => ({
-  width: "100%",
+  width: "80%",
   borderRadius: "40%", 
   maxWidth: "350px", 
   display: "block",
   margin: "0 auto",
 }));
+
 
 const Hero = () => {
   return (
@@ -38,6 +40,7 @@ const Hero = () => {
               <Typography
                 variant="h1"
                 textAlign="center"
+                pb={2}
                 sx={{
                   color: "secondary.main",
                   fontWeight: 600,
@@ -50,6 +53,7 @@ const Hero = () => {
               <Typography
                 variant="h2"
                 textAlign="center"
+                pb={3}
                 sx={{
                   color: "secondary.main",
                   fontWeight: 400,
@@ -59,17 +63,19 @@ const Hero = () => {
                 I'm a Software Engineering Student
               </Typography>
 
-              <Grid container spacing={2} display="flex" justifyContent={{ xs: "center", md: "space-evenly" }}>
-                <Grid item xs={12} md={6}>
-                  <Button> <GetAppIcon/> Dowload </Button>
+                <Grid container spacing={2} display="flex" justifyContent={{ xs: "center", md: "space-evenly" }} >
+                  <Grid item xs={12} md={6}>
+                    <Button 
+                    color="secondary" 
+                    variant="outlined"> <GetAppIcon/> Dowload </Button>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Button 
+                    color="secondary" 
+                    variant="outlined"> <EmailIcon/> Contatct me </Button>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <Button> <EmailIcon/> Contatct me </Button>
-                </Grid>
-              </Grid>
               
-              
-
             </Grid>
           </Grid>
         </Container>
